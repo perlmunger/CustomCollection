@@ -27,6 +27,7 @@
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <gestureRecognizers/>
                         <collectionViewLayout key="collectionViewLayout" id="Fny-rk-V2n" customClass="CustomCollectionLayout"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionCellIdentifier" id="ChG-56-acP" customClass="CustomCollectionCell">
@@ -43,11 +44,17 @@
                         <connections>
                             <outlet property="dataSource" destination="TVX-Yr-BSg" id="Yyx-Fg-4u5"/>
                             <outlet property="delegate" destination="TVX-Yr-BSg" id="Gt5-Ow-eLN"/>
+                            <outletCollection property="gestureRecognizers" destination="Eby-6W-1uS" appends="YES" id="PhO-ME-WCj"/>
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="WZc-hY-Dta"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gj-ol-8Eg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Eby-6W-1uS">
+                    <connections>
+                        <action selector="handleTapGesture:" destination="TVX-Yr-BSg" id="gMG-j3-OYR"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="471" y="-208"/>
         </scene>
@@ -73,6 +80,9 @@
         </class>
         <class className="ViewController" superclassName="UICollectionViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="handleTapGesture:" candidateClass="UITapGestureRecognizer"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
