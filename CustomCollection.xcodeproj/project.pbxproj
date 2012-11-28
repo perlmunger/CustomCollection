@@ -18,6 +18,9 @@
 		B3B70EFF1665C532005106ED /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3B70EFE1665C532005106ED /* Default-568h@2x.png */; };
 		B3B70F021665C532005106ED /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3B70F001665C532005106ED /* MainStoryboard.storyboard */; };
 		B3B70F051665C532005106ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B70F041665C532005106ED /* ViewController.m */; };
+		B3B70F0D1665C5AA005106ED /* CustomCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B70F0C1665C5AA005106ED /* CustomCollectionLayout.m */; };
+		B3B70F101665C5C4005106ED /* CustomCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B70F0F1665C5C4005106ED /* CustomCollectionCell.m */; };
+		B3B70F121665C6C4005106ED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B70F111665C6C4005106ED /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,11 @@
 		B3B70F011665C532005106ED /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		B3B70F031665C532005106ED /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B3B70F041665C532005106ED /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B3B70F0B1665C5AA005106ED /* CustomCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionLayout.h; sourceTree = "<group>"; };
+		B3B70F0C1665C5AA005106ED /* CustomCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionLayout.m; sourceTree = "<group>"; };
+		B3B70F0E1665C5C4005106ED /* CustomCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionCell.h; sourceTree = "<group>"; };
+		B3B70F0F1665C5C4005106ED /* CustomCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionCell.m; sourceTree = "<group>"; };
+		B3B70F111665C6C4005106ED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3B70F121665C6C4005106ED /* QuartzCore.framework in Frameworks */,
 				B3B70EE91665C531005106ED /* UIKit.framework in Frameworks */,
 				B3B70EEB1665C531005106ED /* Foundation.framework in Frameworks */,
 				B3B70EED1665C531005106ED /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +82,7 @@
 		B3B70EE71665C531005106ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3B70F111665C6C4005106ED /* QuartzCore.framework */,
 				B3B70EE81665C531005106ED /* UIKit.framework */,
 				B3B70EEA1665C531005106ED /* Foundation.framework */,
 				B3B70EEC1665C531005106ED /* CoreGraphics.framework */,
@@ -83,12 +93,16 @@
 		B3B70EEE1665C531005106ED /* CustomCollection */ = {
 			isa = PBXGroup;
 			children = (
+				B3B70EEF1665C531005106ED /* Supporting Files */,
 				B3B70EF71665C532005106ED /* AppDelegate.h */,
 				B3B70EF81665C532005106ED /* AppDelegate.m */,
 				B3B70F001665C532005106ED /* MainStoryboard.storyboard */,
 				B3B70F031665C532005106ED /* ViewController.h */,
 				B3B70F041665C532005106ED /* ViewController.m */,
-				B3B70EEF1665C531005106ED /* Supporting Files */,
+				B3B70F0B1665C5AA005106ED /* CustomCollectionLayout.h */,
+				B3B70F0C1665C5AA005106ED /* CustomCollectionLayout.m */,
+				B3B70F0E1665C5C4005106ED /* CustomCollectionCell.h */,
+				B3B70F0F1665C5C4005106ED /* CustomCollectionCell.m */,
 			);
 			path = CustomCollection;
 			sourceTree = "<group>";
@@ -176,6 +190,8 @@
 				B3B70EF51665C531005106ED /* main.m in Sources */,
 				B3B70EF91665C532005106ED /* AppDelegate.m in Sources */,
 				B3B70F051665C532005106ED /* ViewController.m in Sources */,
+				B3B70F0D1665C5AA005106ED /* CustomCollectionLayout.m in Sources */,
+				B3B70F101665C5C4005106ED /* CustomCollectionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

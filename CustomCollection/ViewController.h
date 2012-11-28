@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UICollectionViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+
+@property (nonatomic, assign) NSInteger cellCount;
 
 @end

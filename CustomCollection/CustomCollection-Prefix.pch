@@ -1,6 +1,4 @@
-//
-// Prefix header for all source files of the 'CustomCollection' target in the 'CustomCollection' project
-//
+#define degreesToRadians(x) (M_PI * x / 180.0)
 
 #import <Availability.h>
 
@@ -11,4 +9,5 @@
 #ifdef __OBJC__
   #import <UIKit/UIKit.h>
   #import <Foundation/Foundation.h>
+  #import <QuartzCore/QuartzCore.h>
 #endif
