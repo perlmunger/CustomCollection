@@ -8,7 +8,7 @@
 
 #import "CustomCollectionLayout.h"
 
-#define ITEM_SIZE 150.0f
+#define ITEM_SIZE 300.0f
 
 @implementation CustomCollectionLayout
 
@@ -36,23 +36,24 @@
 {
   [super prepareLayout];
   
-  CGSize size = self.collectionView.frame.size;
+  CGSize size = [[self collectionView] frame].size;
   _cellCount = [[self collectionView] numberOfItemsInSection:0];
   _center = CGPointMake(size.width / 2.0, size.height / 2.0);
 }
 
 - (CGSize)collectionViewContentSize
 {
-  return [self collectionView].frame.size;
+  return [[self collectionView] frame].size;
 }
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)path
 {
   UICollectionViewLayoutAttributes* attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:path];
-  attributes.size = CGSizeMake(ITEM_SIZE, ITEM_SIZE);
-  attributes.center = [self center];
+  [attributes setSize:CGSizeMake(ITEM_SIZE, ITEM_SIZE)];
+  [attributes setCenter:[self center]];
+  [attributes setZIndex:[path row]*-1];
   NSInteger angle = arc4random() % 15;
-  attributes.transform3D = CATransform3DMakeRotation(degreesToRadians(angle), 0.0f, 0.0f, 1.0f);
+  [attributes setTransform3D:CATransform3DMakeRotation(degreesToRadians(angle), 0.0f, 0.0f, 1.0f)];
   
   return attributes;
 }
@@ -71,11 +72,10 @@
 {
   [super prepareForCollectionViewUpdates:updates];
   for (UICollectionViewUpdateItem* updateItem in updates) {
-    if (updateItem.updateAction == UICollectionUpdateActionInsert) {
-      [_insertedIndexPaths addObject:updateItem.indexPathAfterUpdate];
-    }
-    else if (updateItem.updateAction == UICollectionUpdateActionDelete) {
-      [_deletedIndexPaths addObject:updateItem.indexPathBeforeUpdate];
+    if ([updateItem updateAction] == UICollectionUpdateActionInsert) {
+      [_insertedIndexPaths addObject:[updateItem indexPathAfterUpdate]];
+    } else if ([updateItem updateAction] == UICollectionUpdateActionDelete) {
+      [_deletedIndexPaths addObject:[updateItem indexPathBeforeUpdate]];
     }
   }
 }
@@ -99,20 +99,21 @@
 - (UICollectionViewLayoutAttributes*)appearanceAnimationAttributesForIndexPath:(NSIndexPath*)indexPath
 {
   UICollectionViewLayoutAttributes* attributes = [self layoutAttributesForItemAtIndexPath:indexPath];
-  attributes.alpha = 0.0;
-  attributes.center = CGPointMake(_center.x, _center.y);
-  attributes.transform3D = CATransform3DMakeScale(25.0, 25.0, 1.0);
+  [attributes setAlpha:0.0];
+  [attributes setCenter:CGPointMake(_center.x, _center.y)];
+  [attributes setTransform3D:CATransform3DMakeScale(25.0, 25.0, 1.0)];
+
   return attributes;
 }
 
 - (UICollectionViewLayoutAttributes*)disappearanceAnimationAttributesForIndexPath:(NSIndexPath*)indexPath
 {
   UICollectionViewLayoutAttributes* attributes = [self layoutAttributesForItemAtIndexPath:indexPath];
-  attributes.alpha = 0.0;
-  attributes.center = CGPointMake(_center.x, _center.y);
-  attributes.transform3D = CATransform3DMakeScale(25.0, 25.0, 1.0);
+  [attributes setAlpha:0.0];
+  [attributes setCenter:CGPointMake(_center.x, _center.y)];
+  [attributes setTransform3D:CATransform3DMakeScale(25.0, 25.0, 1.0)];
+
   return attributes;
-  
 }
 
 @end
