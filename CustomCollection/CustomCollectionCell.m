@@ -31,8 +31,9 @@
 - (void)setAttributes
 {
   [self setBackgroundColor:[UIColor lightGrayColor]];
-  [[self layer] setBorderWidth:5.0f];
+  [[self layer] setBorderWidth:15.0f];
   [[self layer] setBorderColor:[[UIColor whiteColor] CGColor]];
+  [[self layer] setContentsGravity:kCAGravityResizeAspectFill];
 }
 
 @end
