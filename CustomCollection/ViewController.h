@@ -11,5 +11,6 @@
 @interface ViewController : UICollectionViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, assign) NSInteger cellCount;
+- (UIImage*)randomImage;
 
 @end
